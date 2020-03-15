@@ -114,6 +114,12 @@ Route::group(['middleware'=>'verified'],function(){
     //invoice
     Route::post('final-invoice','CartController@FinalInvoice');
 
+    //order
+    Route::get('/all-pending-orders','PosController@pendingOrders')->name('pending.order');
+    Route::get('/view-single-order/{id}','PosController@singleOrder');
+    Route::get('/aprove-pending-order/{id}','PosController@aproveOrder');
+    Route::get('/all-success-orders','PosController@successOrders')->name('success.order');
+
 });
 
 

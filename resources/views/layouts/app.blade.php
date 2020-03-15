@@ -209,7 +209,13 @@
                             <li>
                                 <a href="{{route('pos')}}" class="waves-effect"><i class="md md-home"></i><span> <b class="text-primary">POS</b> </span></a>
                             </li>
-
+                            <li class="has_sub">
+                                <a href="#" class="waves-effect"><i class="fa fa-users"></i><span> Order </span><span class="pull-right"><i class="md md-add"></i></span></a>
+                                <ul class="list-unstyled">
+                                    <li><a href="{{ route('pending.order') }}">Pending Order</a></li>
+                                    <li><a href="{{ route('success.order') }}">Success Order</a></li>
+                                </ul>
+                            </li>
                             <li class="has_sub">
                                 <a href="#" class="waves-effect"><i class="fa fa-users"></i><span> Sales </span><span class="pull-right"><i class="md md-add"></i></span></a>
                                 <ul class="list-unstyled">

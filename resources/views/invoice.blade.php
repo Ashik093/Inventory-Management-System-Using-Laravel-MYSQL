@@ -26,7 +26,7 @@
                                     
                                 </div>
                                 <div class="pull-right">
-                                    <h4>Invoice # <br>
+                                    <h4>Date<br>
                                     <strong>{{ date('d/m/Y') }}</strong>
                                     </h4>
                                 </div>
