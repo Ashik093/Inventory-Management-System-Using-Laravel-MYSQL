@@ -24,8 +24,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $todaySales = DB::table('orders')->where('order_status','success')->sum('total');
-        $orders = DB::table('orders')->count();
+        $today = date('m/d/Y');
+        $todaySales = DB::table('orders')->where('order_status','success')->where('order_date',$today)->sum('total');
+        $orders = DB::table('orders')->where('order_date',$today)->count();
         $customer = DB::table('customers')->count();
         return view('home',compact('todaySales','orders','customer'));
     }

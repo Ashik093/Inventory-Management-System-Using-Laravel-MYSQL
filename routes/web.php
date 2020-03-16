@@ -120,6 +120,9 @@ Route::group(['middleware'=>'verified'],function(){
     Route::get('/aprove-pending-order/{id}','PosController@aproveOrder');
     Route::get('/all-success-orders','PosController@successOrders')->name('success.order');
 
+    //pdf
+    Route::get('/make-pdf/{id}','PosController@pdf');
+
 });
 
 

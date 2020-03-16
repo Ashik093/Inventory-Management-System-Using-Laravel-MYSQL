@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
+use PDF;
 
 class PosController extends Controller
 {
@@ -73,5 +74,22 @@ class PosController extends Controller
                 ->where('order_status','success')
                 ->get();
         return view('allSuccessOrder',compact('orders'));
+    }
+
+    public function pdf($id){
+         $order = DB::table('orders')
+                ->join('customers','orders.customer_id','customers.id')
+                ->select('customers.*','orders.*','orders.id as order_id')
+                ->where('orders.id',$id)
+                ->first();
+
+        $contents = DB::table('orderdetails')
+                        ->join('products','products.id','orderdetails.product_id')
+                        ->select('products.*','orderdetails.*','products.id as prod_id')
+                        ->where('order_id',$id)
+                        ->get();
+        $pdf = PDF::loadView('invoicePdf',compact('order','contents'));
+        
+        return $pdf->download($order->order_id.'.pdf');
     }
 }

@@ -99,7 +99,7 @@
                         <hr>
                         <div class="hidden-print">
                             <div class="pull-right">
-                                <a href="#" onclick="window.print()" class="btn btn-inverse waves-effect waves-light"><i class="fa fa-print"></i></a>
+                                <a href="{{ URL::to('/make-pdf/'.$order->order_id) }}" class="btn btn-inverse waves-effect waves-light"><i class="fa fa-print"></i></a>
                                 @if($order->order_status == 'pending')
                                     <a href="{{ URL::to('/aprove-pending-order/'.$order->order_id) }}" class="btn btn-primary waves-effect waves-light">Aprove</a>
                                 @endif
